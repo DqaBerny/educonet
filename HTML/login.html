@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Login — Educonet</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+  <div class="site page-inner page-inner--compact">
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/HTML/Educonet.html">         <img src="Educonet logo.png" href="/HTML/Educonet.html" alt="Educonet Logo" height="40"><div class="brand-text"><span class="title">Educonet</span></div></a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span></span><span></span></button>
+            <nav id="site-nav" class="main-nav" aria-label="Main navigation">
+            <ul>
+            <li><a href="/HTML/Educonet.html">Home</a></li>
+            <li><a href="/HTML/Courses.html">Courses</a></li>
+            <li><a href="/HTML/Our Vision.html">Who are we?</a></li>
+            <li><a href="/HTML/Contact Our Team.html">Contact Our Team</a></li>
+            <li><a class="btn cta" href="login.html">Start Learning</a></li>
+            </ul>
+          </nav>
+      </div>
+    </header>
+
+  <main class="auth-layout">
+      <section>
+        <h1>Welcome back</h1>
+        <p class="lead">Sign in to access your courses, continue learning, and connect with student instructors.</p>
+  <div class="spaced">
+          <h3>Why sign in?</h3>
+          <ul class="muted">
+            <li>Save progress and bookmarks</li>
+            <li>Enroll in paid and free courses</li>
+            <li>Message instructors and join cohorts</li>
+          </ul>
+        </div>
+      </section>
+
+      <aside>
+        <div class="panel">
+          <h2>Log in</h2>
+          <form class="form-grid" onsubmit="event.preventDefault(); alert('Demo: logged in');">
+            <label class="muted">Email</label>
+            <input type="email" required placeholder="you@university.edu">
+            <label class="muted">Password</label>
+            <input type="password" required placeholder="••••••••">
+
+            <div class="btn-row">
+              <button class="btn full" type="submit">Log in</button>
+            </div>
+            <div class="center-muted">
+              <span class="muted">Don't have an account? </span><a href="signup.html">Sign up</a>
+            </div>
+          </form>
+          <div class="spaced-sm" style="text-align:center">
+            <button class="btn outline">Continue with Google</button>
+          </div>
+        </div>
+      </aside>
+    </main>
+    <footer class="site-footer">
+      <div class="foot-inner"><div><strong>Educonet</strong><div class="muted">&copy; <span id="year-login">2025</span> Educonet</div></div><div class="muted">Supporting SDG 8</div></div>
+    </footer>
+  </div>
+  <script>document.getElementById('year-login').textContent = new Date().getFullYear();</script>
+  <script src="../Javascript/menu.js"></script>
+</body>
+</html>

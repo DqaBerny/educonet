@@ -1,0 +1,286 @@
+/* ==================================
+     Educonet - styles.css
+     Organized: variables, base, layout, components, utilities, responsive
+     Palette variables are at the top — edit them to change brand colors.
+ ================================== */
+
+/* ---------- VARIABLES / THEME ---------- */
+:root{
+    /* Color palette */
+    --navy: #031926;       /* primary background */
+    --steel: #468189;      /* secondary accents */
+    --accent: #F58A07;     /* CTA accent (orange) */
+    --accent-2: #F9AB55;   /* warm yellow (hover/highlight) */
+    --paper: #F7F5FB;      /* off white */
+    --text-dark: #051021;  /* dark text for light backgrounds */
+    --text-light: #F7F5FB; /* light text for dark backgrounds */
+
+    /* Layout tokens */
+    --radius: 12px;
+    --container: 1200px;
+    --gap: 20px;
+
+    /* Breakpoints (edit if needed) */
+    --bp-desktop: 1024px; /* desktop and up */
+    --bp-tablet: 768px;   /* tablet */
+    --bp-mobile: 0px;     /* mobile */
+}
+
+/* ---------- BASE / TYPOGRAPHY ---------- */
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+    margin:0;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #ffffff; /* changed back to white as requested */
+    color:var(--text-dark);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.45;
+}
+
+.site{max-width:var(--container); margin:28px auto; padding:18px}
+
+/* utility */
+.muted{color:var(--steel); opacity:0.95}
+a{color:inherit}
+
+/* Layout utilities: use these instead of inline max-width styles */
+.page-inner{margin:28px auto; padding:0 18px}
+.page-inner--narrow{max-width:980px}
+.page-inner--wide{max-width:1100px}
+.page-inner--compact{max-width:900px; margin:36px auto}
+
+.container{max-width:var(--container); margin:0 auto; padding:0 18px}
+
+/* small spacing utilities */
+.spaced{margin-top:18px}
+.spaced-sm{margin-top:12px}
+
+/* auth / two-column layout for login/signup pages */
+.auth-layout{display:grid; grid-template-columns:1fr 420px; gap:28px; align-items:center}
+.form-grid{display:grid; gap:12px}
+.btn-row{display:flex; gap:8px}
+.center-muted{text-align:center; margin-top:6px}
+
+.panel h2{margin-top:0}
+
+/* ---------- LAYOUT / SEMANTIC AREAS ---------- */
+header.topbar{padding:8px 0}
+.topbar-inner{display:flex; align-items:center; gap:16px; justify-content:space-between}
+.brand{display:flex; align-items:center; gap:12px; text-decoration:none; color:inherit}
+.logo{width:48px;height:48px;border-radius:10px;display:grid;place-items:center;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:var(--text-dark); box-shadow:0 6px 18px rgba(2,8,18,0.6)}
+.brand-text .title{font-weight:700; font-size:18px}
+.brand-text .tag{display:block; font-size:12px; color:var(--steel); opacity:0.95}
+
+/* navigation */
+.main-nav{display:block}
+.main-nav ul{display:flex; gap:18px; margin:0; padding:0; list-style:none; align-items:center}
+.main-nav a{color:var(--text-dark); text-decoration:none; font-weight:600; padding:8px 10px; border-radius:8px}
+.main-nav a:hover, .main-nav a.active{background:linear-gradient(90deg, rgba(0,0,0,0.03), rgba(0,0,0,0.02)); color:var(--accent-2)}
+
+/* CTA inside nav: hidden on desktop (we use top-actions there), shown on mobile */
+.main-nav .btn.cta{display:none; padding:8px 12px}
+
+.top-actions{display:flex; gap:10px}
+.btn{display:inline-flex; align-items:center; gap:10px; padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none; cursor:pointer; border:0}
+.btn.ghost{background:transparent; color:var(--paper); border:1px solid rgba(255,255,255,0.06)}
+.btn.cta{background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:var(--text-dark)}
+
+/* main layout grid: sidebar | main | widgets */
+/* main layout grid: sidebar | main | widgets */
+main.layout{display:grid; grid-template-columns:minmax(220px,260px) minmax(0,1fr) minmax(240px,320px); gap:20px; margin-top:18px; align-items:start}
+
+/* content panels */
+.panel{
+    background: #ffffff; /* subtle white card */
+    padding:16px;
+    border-radius:var(--radius);
+    border:1px solid rgba(15,23,25,0.05);
+    box-shadow:0 6px 18px rgba(16,24,32,0.04);
+    color:var(--text-dark);
+}
+
+/* ---------- HERO ---------- */
+.hero{display:flex; gap:18px; align-items:center; justify-content:space-between; padding:22px; border-radius:var(--radius); background:var(--paper); border:1px solid rgba(15,23,25,0.03); box-shadow:0 8px 20px rgba(16,24,32,0.03)}
+.hero .hero-copy h1{margin:0; font-size:28px}
+.lead{margin:10px 0 16px; color:var(--text-dark); opacity:0.92; max-width:56ch}
+
+/* hero illustration tweaks */
+.hero-illustration{width:100%; max-width:420px; margin-top:16px; border-radius:8px; display:block}
+.hero-ctas{display:flex; gap:12px}
+.hero-media .hero-card{background:linear-gradient(135deg,var(--accent),var(--accent-2)); color:var(--text-dark); padding:18px; border-radius:12px; display:flex; align-items:center; gap:12px}
+
+/* ---------- COURSES GRID / CARDS ---------- */
+.section-head{display:flex; align-items:center; justify-content:space-between; margin:20px 0}
+.courses-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px; align-items:start}
+.card{background:#ffffff; border-radius:12px; overflow:hidden; display:flex; transition:transform .22s cubic-bezier(.2,.8,.2,1), box-shadow .22s cubic-bezier(.2,.8,.2,1); box-shadow:0 10px 20px rgba(16,24,32,0.04); border:1px solid rgba(15,23,25,0.04); align-items:stretch}
+.card:hover{transform:translateY(-6px); box-shadow:0 24px 40px rgba(16,24,32,0.08)}
+.course .thumb{flex:0 0 clamp(140px, 12vw, 200px); width:clamp(140px, 12vw, 200px); height:clamp(140px, 12vw, 200px); aspect-ratio:1/1; background-size:cover; background-position:center; overflow:hidden; border-right:1px solid rgba(15,23,25,0.02); display:block}
+.card-body{padding:14px; display:flex; flex-direction:column; justify-content:space-between; flex:1; min-width:0}
+.card-body h3{margin:0 0 8px; font-size:18px; line-height:1.15}
+.card-body p{margin:0 0 8px; color:var(--text-dark); opacity:0.88; font-size:14px}
+.card .thumb img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .5s ease; -o-object-fit:cover}
+
+/* fallback for older browsers: ensure images don't stretch when stacked */
+.card img{max-width:100%; height:auto; display:block}
+
+/* gentle image scale on hover to feel alive */
+.card:hover .thumb img{transform:scale(1.04)}
+
+/* responsive thumb: full-width square on small screens */
+/* Tablet: 2 columns */
+@media (max-width:1023px){
+    .courses-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+@media (max-width:767px){
+    .courses-grid{grid-template-columns:1fr}
+    .course .thumb{width:100%; height:auto; aspect-ratio:1/1; border-right:none}
+    .card{flex-direction:column}
+    /* When stacked, let the image fill the box */
+    .card .thumb img{width:100%; height:100%; object-fit:cover}
+}
+
+/* small visual polish for headings inside panels */
+.panel h1, .panel h2, .panel h3, .panel h4{color:var(--text-dark)}
+.provider{font-size:13px; color:var(--steel); margin-top:6px}
+.meta-row{display:flex; justify-content:space-between; gap:10px; align-items:center; margin-top:10px}
+.price{background:rgba(255,255,255,0.03); padding:6px 8px; border-radius:8px; font-weight:700}
+
+/* ---------- WIDGETS ---------- */
+.widgets .panel{margin-bottom:18px}
+.instructors{list-style:none; padding:0; margin:8px 0}
+.instructors li{padding:8px 0; color:var(--text-dark); opacity:0.88}
+
+/* ---------- FOOTER ---------- */
+.site-footer{margin-top:28px}
+.foot-inner{display:flex; justify-content:space-between; align-items:center; padding:16px; border-radius:12px; background:linear-gradient(180deg, rgba(255,255,255,0.015), transparent); color:var(--text-dark); opacity:0.95}
+
+/* ---------- NAV TOGGLE (MOBILE) ---------- */
+.nav-toggle{display:none; background:transparent; border:0; width:44px; height:40px; align-items:center; justify-content:center; cursor:pointer}
+.nav-toggle span{display:block; width:22px; height:2px; background:var(--text-dark); margin:4px 0; border-radius:2px; transition:transform .22s ease, opacity .22s ease}
+
+/* ---------- RESPONSIVE: breakpoints ---------- */
+/* Desktop: >=1024px (default styles above) */
+@media (max-width:1023px){
+    /* Tablet adjustments (<=1023px) */
+    .courses-grid{grid-template-columns:repeat(2,1fr)}
+    main.layout{grid-template-columns:minmax(180px,220px) minmax(0,1fr) minmax(200px,280px); gap:18px}
+}
+
+@media (max-width:767px){
+    /* Mobile: <=767px */
+    .nav-toggle{display:flex}
+    .top-actions{display:none}
+
+    /* Slide-in nav (hidden by default) */
+    .main-nav{position:fixed; top:0; right:0; height:100vh; width:280px; transform:translateX(100%); transition:transform .32s cubic-bezier(.2,.9,.2,1); padding:20px; z-index:1200; background:#ffffff; box-shadow:0 12px 30px rgba(16,24,32,0.08); border-left:1px solid rgba(15,23,25,0.04)}
+    .main-nav.open{transform:translateX(0)}
+    .main-nav ul{flex-direction:column}
+    .main-nav a{display:block; padding:12px 8px}
+    .main-nav .btn.cta{display:inline-block; width:100%; text-align:center; margin-top:12px}
+    /* hide the desktop top-actions on mobile */
+    .top-actions{display:none}
+
+    /* Layout stacks */
+    main.layout{grid-template-columns:1fr;}
+    .hero{flex-direction:column; align-items:flex-start}
+    .widgets{order:3}
+    .card{flex-direction:column}
+    .course .thumb{width:100%; min-height:180px}
+    .courses-grid{grid-template-columns:1fr}
+}
+
+/* hamburger to X */
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0; transform:translateX(-10px)}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){opacity:0; transform:scale(0)}
+.nav-toggle[aria-expanded="true"] span:nth-child(4){opacity:0; transform:translateX(10px)}
+.nav-toggle[aria-expanded="true"] span:nth-child(5){transform:translateY(-8px) rotate(-45deg)}
+
+/* ---------- HOMEPAGE SLIDER CARDS ---------- */
+.slider-courses{display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:16px; margin-top:18px}
+.slider-card{background:#ffffff; border-radius:12px; padding:12px; box-shadow:0 10px 20px rgba(16,24,32,0.06); display:flex; flex-direction:column; align-items:center; text-align:center}
+.slider-card img{width:100%; height:110px; object-fit:cover; border-radius:8px}
+.slider-card h4{margin:10px 0 0; font-size:15px}
+
+/* ---------- VIDEO SECTION (collapsible on mobile) ---------- */
+.video-section{padding:18px; border-radius:12px}
+.video-section .video-wrap{overflow:hidden; max-height:1200px; transition:max-height .36s ease}
+.video-section.collapsed .video-wrap{max-height:0}
+.video-toggle{display:none; background:transparent; border:1px solid rgba(5,16,33,0.06); padding:8px 12px; border-radius:8px; cursor:pointer}
+
+@media (max-width:767px){
+    .video-toggle{display:inline-block}
+    .video-section .video-meta{display:flex; justify-content:space-between; align-items:center}
+}
+
+/* ---------- LAYOUT TWEAK: ensure content fills available space ---------- */
+.content{min-width:0}
+
+/* Make the video section span the full width of the grid so it aligns with content
+    while still living inside the main layout */
+.video-section{grid-column:1 / -1}
+
+
+/* ---------- SLIDER (Homepage) ---------- */
+.slider{position:relative; overflow:hidden; padding:0; border-radius:12px}
+.slider-inner{position:relative; width:100%; height:260px}
+.slide{position:absolute; inset:0; opacity:0; transition:opacity .6s ease; display:grid; place-items:center; background:var(--paper)}
+.slide img{width:100%; height:100%; object-fit:cover; display:block}
+.slide.active{opacity:1; position:relative}
+.slider-prev, .slider-next{position:absolute; top:50%; transform:translateY(-50%); background:rgba(3,25,38,0.75); color:#fff; border:0; width:40px; height:40px; border-radius:8px; display:grid; place-items:center; cursor:pointer; z-index:10}
+.slider-prev{left:12px}
+.slider-next{right:12px}
+.slider-dots{position:absolute; left:50%; transform:translateX(-50%); bottom:12px; display:flex; gap:8px; z-index:10}
+.slider-dots button{width:10px; height:10px; border-radius:50%; border:0; background:rgba(255,255,255,0.6); cursor:pointer}
+.slider-dots button.active{background:var(--accent)}
+
+@media (max-width:767px){
+    .slider-inner{height:180px}
+}
+
+/* small utility */
+.sr-only{position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden}
+
+/* ---------- FULL-BLEED / EDGE-TO-EDGE SECTIONS ---------- */
+/* Use `.full-bleed` on a block to make it span the full viewport width while
+    keeping readable content centered inside an inner container. */
+.full-bleed{position:relative; left:50%; right:50%; margin-left:-50vw; margin-right:-50vw; width:100vw}
+.full-bleed{background:var(--paper); color:var(--text-dark)}
+.full-bleed > .page-inner{padding:32px 18px; margin:0 auto; max-width:var(--container); text-align:center}
+.full-bleed h1, .full-bleed h2, .full-bleed h3, .full-bleed p{margin-left:auto; margin-right:auto}
+.full-bleed .panel{border-radius:0; box-shadow:none; border:0}
+
+/* centered card utility: constrain a content panel and center it on the page */
+.centered-panel{max-width:920px; margin:0 auto; padding:28px; border-radius:12px; background:var(--paper); box-shadow:0 10px 20px rgba(16,24,32,0.04); text-align:left}
+
+
+/* Fix alignment for full-bleed sections that should remain centered */
+.content.full-bleed {
+  left: 0;
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+}
+/* ---------- CUSTOM FIX: Make certain content sections span the full layout width ---------- */
+/* This approach works with pages using <main class="layout"> */
+
+.layout .content {
+  grid-column: 1 / -1;         /* spans all grid columns in the layout */
+  width: 100%;                 /* ensures full width of main area */
+  margin: 0;                   /* removes any side margin that may constrain width */
+  padding: 40px 5%;            /* adds equal padding on left/right for breathing room */
+  background-color: var(--paper);
+  box-sizing: border-box;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(16,24,32,0.04);
+}
+/* ---------- TEXT ALIGNMENT FIX ---------- */
+.page-inner {
+  text-align: left;
+}
+
+/* end of stylesheet */
+

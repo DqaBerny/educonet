@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Learn. Connect. Grow.</title>
+    <link rel="stylesheet" href="../CSS/styles.css">
+</head>
+<body>
+    <!-- Header (consistent) -->
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/HTML/Educonet.html">
+        <img src="Educonet logo.png" href="/HTML/Educonet.html" alt="Educonet Logo" height="40">
+          <div class="brand-text">
+            <span class="title">Educonet</span>
+            <span class="tag">Learn. Connect. Grow.</span>
+          </div>
+        </a>
+  <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="site-nav"><span></span><span></span><span></span><span></span><span></span></button>
+
+  <nav id="site-nav" class="main-nav" aria-label="Main navigation">
+          <ul>
+            <li><a href="/HTML/Educonet.html">Home</a></li>
+            <li><a href="/HTML/Courses.html">Courses</a></li>
+            <li><a href="/HTML/Our Vision.html">Who are we?</a></li>
+            <li><a href="/HTML/Contact Our Team.html" class="active">Contact Our Team</a></li>
+            <li><a class="btn cta" href="login.html">Start Learning</a></li>
+          </ul>
+        </nav>
+
+        <div class="top-actions">
+          <a class="btn cta" href="login.html">Start Learning</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="site">
+  <div class="page-inner page-inner--narrow">
+        <section class="content">
+          <h1>Contact Educonet</h1>
+          <p class="lead">Questions, partnerships, or support — leave us a message and we'll respond within 2 business days.</p>
+
+          <div class="panel spaced-sm">
+            <form id="contactForm" class="form-grid" onsubmit="event.preventDefault(); document.getElementById('status').textContent='Thanks — message received (demo)';">
+              <label class="muted">Name</label>
+              <input id="name" name="name" type="text" required />
+
+              <label class="muted">Email</label>
+              <input id="email" name="email" type="email" required />
+
+              <label class="muted">I am a</label>
+              <select id="role" name="role">
+                <option value="learner">Learner</option>
+                <option value="teacher">Student-Teacher</option>
+                <option value="partner">Partner</option>
+              </select>
+
+              <label class="muted">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+
+              <div class="btn-row">
+                <button class="btn full" type="submit">Send Message</button>
+                <button class="btn outline" type="reset">Reset</button>
+              </div>
+              <div id="status" class="muted"></div>
+            </form>
+          </div>
+
+          <section class="spaced">
+            <h3>Other ways to reach us</h3>
+            <ul class="muted">
+              <li>Email: <a href="mailto:info@educonet.co.za">info@educonet.co.za</a></li>
+              <li>Instagram: <a href="https://instagram.com/educonet_sa" target="_blank" rel="noopener">@educonet_sa</a></li>
+              <li>Location: University of Johannesburg, Auckland Park Campus</li>
+            </ul>
+          </section>
+        </section>
+
+        <footer class="site-footer">
+          <div class="foot-inner">
+            <div>
+              <strong>Educonet</strong>
+              <div class="muted">&copy; <span id="year-contact">2025</span> Educonet. All rights reserved.</div>
+            </div>
+            <div class="muted">Supporting SDG 8: Decent Work and Economic Growth</div>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <script>document.getElementById('year-contact').textContent = new Date().getFullYear();</script>
+  <script src="../Javascript/menu.js"></script>
+</body>
+</html>
